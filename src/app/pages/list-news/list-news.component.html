@@ -1,23 +1,69 @@
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Roboto:wght@300&display=swap" rel="stylesheet">
+
+<div class="row">
+  <div class="container col">
+    <div
+    class="card"
+    *ngFor="let new of news">
+      <figure class="card__thumb" >
+        <img [src]="new.imagen" class="card__image">
+        <figcaption class="card__caption">
+          <h2 class="card__title">{{new.titulo}}</h2>
+          <p class="card__snippet">{{new.descripcion}}</p>
+          <a href="" class="card__button">Read more</a>
+        </figcaption>
+      </figure>
+    </div>
+
+  </div>
+</div>
+<!-- [ngStyle]="{'background-image': 'url(' + new.imagen + ') '}" -->
+
+
+<!-- <div class="row">
+  <div *ngFor="let new of news" class="col-3">
+    <div
+    class="card shadow p-3 mb-5 bg-black rounded"
+    style="border: 1px solid; height: 600px; padding-bottom:50px">
+      <img
+      [src]="new.imagen"
+      class="card-img-top"
+      [alt]="new.titulo"
+      style="height: 350px; object-fit:cover;"
+      >
+      <div class="card-body">
+        <h5 class="card-title">{{new.titulo}}</h5>
+        <p class="card-text fifty-chars" >{{ new.descripcion }}</p>
+      </div>
+    </div>
+  </div>
+</div> -->
+
+<!--
 <div class="row el-element-overlay">
-    <!-- ============================================================== -->
-    <!-- List news. Repetir para cada noticia que nos de la API -->
-    <!-- ============================================================== -->
-    <div class="col-lg-3 col-md-6" *ngFor="let currentNew of dataNew">
+    ==============================================================
+    List news. Repetir para cada noticia que nos de la API
+     ==============================================================
+    <div class="col-lg-3 col-md-6" *ngFor="let new of news">
+      <a href="{{new.url}}">
         <div class="card">
             <div class="el-card-item">
-                <div class="el-card-avatar el-overlay-1"> 
-                    <a href="#"><img src="{{currentNew.imagen}}" alt="{{currentNew.imagen}}" /></a> 
+                <div class="el-card-avatar el-overlay-1">
+                    <img src="{{new.imagen}}" alt="{{new.titulo}}" />
                 </div>
                 <div class="el-card-content">
-                    <a href="{{currentNew.url}}">
-                        <h3 class="box-title">{{currentNew.titulo}}</h3> 
-                    </a>
-                    <small>{{currentNew.descripcion}}</small>
+
+                        <h3 class="box-title">{{new.titulo}}</h3>
+
+                    <small>{{new.descripcion}}</small>
                 </div>
             </div>
         </div>
-    </div>   
-    <!-- ============================================================== -->
-    <!-- End List news -->
-    <!-- ============================================================== -->
+      </a>
+    </div>
+   ==============================================================
+     End List news
+    ==============================================================
 </div>
+-->
