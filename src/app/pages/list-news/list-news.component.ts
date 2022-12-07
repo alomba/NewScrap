@@ -31,8 +31,10 @@ export class ListNewsComponent implements OnInit {
 
     console.log(this.news);
 
+  }
 
-
+  guardarNoticia(noticia: NewsResponse){
+    this.APIservice.guardarNoticia(noticia)
   }
 
   shuffle<T>(array: T[]): T[] {

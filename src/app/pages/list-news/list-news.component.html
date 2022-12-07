@@ -11,11 +11,11 @@
         <figcaption class="card__caption">
           <h2 class="card__title">{{new.titulo}}</h2>
           <p class="card__snippet">{{new.descripcion}}</p>
-          <a href="" class="card__button">Read more</a>
+          <a [href]="new.url" class="card__button">Leer mas</a>
+          <a href="#" class="card__button" (click)="guardarNoticia(new)">Ver mas tarde</a>
         </figcaption>
       </figure>
     </div>
-
   </div>
 </div>
 <!-- [ngStyle]="{'background-image': 'url(' + new.imagen + ') '}" -->

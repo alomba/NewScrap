@@ -201,11 +201,16 @@ body {
 .card__thumb{
   background: rgb(0,0,0);
   background: linear-gradient(100deg, rgba(0,0,0,1) 29%, rgba(255,255,255,0) 100%);
-  border-radius: 0px;
+  border-radius: 16px;
 }
 
 a{
   width: 80%;
   margin-bottom: 10px;
   display: block;
+}
+
+.segundo_btn:hover{
+  color: black;
+  background-color: white;
 }

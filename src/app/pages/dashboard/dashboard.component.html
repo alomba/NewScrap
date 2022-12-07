@@ -1,1 +1,23 @@
-<p>dashboard works!</p>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Roboto:wght@300&display=swap" rel="stylesheet">
+
+<h1 *ngIf="!news[0]">No hay noticias guardadas :(</h1>
+
+<div class="row">
+  <div class="container col">
+    <div
+    class="card"
+    *ngFor="let new of news">
+      <figure class="card__thumb" >
+        <img [src]="new.imagen" class="card__image">
+        <figcaption class="card__caption">
+          <h2 class="card__title">{{new.titulo}}</h2>
+          <p class="card__snippet">{{new.descripcion}}</p>
+          <a [href]="new.url" class="card__button">Leer mas</a>
+          <a class="card__button segundo_btn">Borrar</a>
+        </figcaption>
+      </figure>
+    </div>
+
+  </div>
+</div>
