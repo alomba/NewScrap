@@ -15,6 +15,7 @@ import { ListNewsComponent }      from './pages/list-news/list-news.component';
 import { PagesComponent }         from './pages/pages.component';
 import { SubscripcionAPIService } from './subscripcion-api.service';
 import { HttpClientModule }       from "@angular/common/http";
+import { WebviewComponent } from './pages/webview/webview.component';
 
 
 
@@ -29,13 +30,14 @@ import { HttpClientModule }       from "@angular/common/http";
     SidebarComponent,
     HeaderComponent,
     ListNewsComponent,
-    PagesComponent
+    PagesComponent,
+    WebviewComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule, 
+    AppRoutingModule,
     RouterModule,
-    HttpClientModule       
+    HttpClientModule,
   ],
   providers: [SubscripcionAPIService],
   bootstrap: [AppComponent]

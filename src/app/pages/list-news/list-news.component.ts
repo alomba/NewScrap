@@ -10,7 +10,10 @@ import { NewsResponse } from '../../interfaces/news.interface';
 })
 export class ListNewsComponent implements OnInit {
 
-  news: NewsResponse[] = [];
+  news     : NewsResponse[] = [];
+  urlNew   : string = ""
+  webView  : boolean = false
+  guardada : boolean = false
 
   constructor(private APIservice: SubscripcionAPIService) {
     console.log('El componente se ha creado');
@@ -33,9 +36,29 @@ export class ListNewsComponent implements OnInit {
 
   }
 
+
+
   guardarNoticia(noticia: NewsResponse){
     this.APIservice.guardarNoticia(noticia)
+    this.guardada = true
   }
+
+
+  verNoticia(url: string){
+      this.webView = true
+      this.urlNew = url
+      console.log(url);
+  }
+
+  trackByNew(index: number, item: any) {
+    return index; // usamos el índice como identificador único para cada elemento
+  }
+
+  comprobarNoticiaGuardada(noticia: NewsResponse){
+    return this.APIservice.comprobarNoticiaGuardada(noticia)
+  }
+
+
 
   shuffle<T>(array: T[]): T[] {
     let currentIndex = array.length,  randomIndex;
@@ -53,7 +76,9 @@ export class ListNewsComponent implements OnInit {
     }
 
     return array;
-};
+}
+
+
 
 
 }

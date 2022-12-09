@@ -8,6 +8,9 @@ $desktop: 1024px;
 	}
 }
 
+
+@import url('https://fonts.googleapis.com/css2?family=Philosopher&display=swap');
+
 html {
   box-sizing: border-box;
   font-size: 62.5%;
@@ -128,7 +131,7 @@ body {
 		display: -webkit-box;
 		max-height: 85px;
     overflow: hidden;
-		font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+		font-family: 'Philosopher', sans-serif;
 		font-size: 23px;
 		line-height: 28px;
     text-shadow:
@@ -208,4 +211,15 @@ a{
   width: 80%;
   margin-bottom: 10px;
   display: block;
+}
+
+a.btn_guardada{
+  color: rgb(0, 0, 0);
+  background-color: rgb(0, 255, 0);
+}
+
+a.card__button:hover{
+  color: rgb(0, 0, 0);
+  background-color: white;
+  cursor: pointer;
 }

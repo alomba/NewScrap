@@ -25,13 +25,24 @@ export class SubscripcionAPIService {
 
   guardarNoticia(noticia:NewsResponse){
     this.noticias = JSON.parse(localStorage.getItem('noticias')!) || [];
-    this.noticias.push(noticia)
-    localStorage.setItem('noticias', JSON.stringify(this.noticias))
+    this.noticias.push(noticia);
+    localStorage.setItem('noticias', JSON.stringify(this.noticias));
   }
 
   recuperarNoticias(){
     this.noticiasRecuperadas = JSON.parse(localStorage.getItem('noticias')!) || [];
-    return this.noticiasRecuperadas
+    return this.noticiasRecuperadas;
+  }
+
+  borrarNoticias(indice:number){
+    this.noticias = JSON.parse(localStorage.getItem('noticias')!) || [];
+    this.noticias.splice(indice, 1);
+    localStorage.setItem('noticias', JSON.stringify(this.noticias));
+  }
+
+  comprobarNoticiaGuardada(noticia:NewsResponse){
+    this.noticias = JSON.parse(localStorage.getItem('noticias')!) || [];
+    return this.noticias.some(noticiaRecuperada => noticiaRecuperada.id === noticia.id)
   }
 
 }

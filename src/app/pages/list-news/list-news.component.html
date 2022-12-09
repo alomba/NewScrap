@@ -1,23 +1,26 @@
 
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Roboto:wght@300&display=swap" rel="stylesheet">
 
-<div class="row">
+<div class="row" *ngIf="!webView">
   <div class="container col">
     <div
-    class="card"
-    *ngFor="let new of news">
+    class="card  animate__animated animate__zoomIn"
+    *ngFor="let new of news; trackBy: trackByNew">
       <figure class="card__thumb" >
         <img [src]="new.imagen" class="card__image">
         <figcaption class="card__caption">
           <h2 class="card__title">{{new.titulo}}</h2>
           <p class="card__snippet">{{new.descripcion}}</p>
-          <a [href]="new.url" class="card__button">Leer mas</a>
-          <a href="#" class="card__button" (click)="guardarNoticia(new)">Ver mas tarde</a>
+          <a (click)="verNoticia(new.url)" class="card__button">Leer mas</a>
+          <a *ngIf="!comprobarNoticiaGuardada(new)" class="card__button" (click)="guardarNoticia(new)">Ver mas tarde</a>
+          <a *ngIf="comprobarNoticiaGuardada(new)" class="card__button btn_guardada" href="dashboard">Guardada! :D</a>
         </figcaption>
       </figure>
     </div>
   </div>
 </div>
+
+<app-webview [urlNew]="urlNew" *ngIf="webView"></app-webview>
 <!-- [ngStyle]="{'background-image': 'url(' + new.imagen + ') '}" -->
 
 

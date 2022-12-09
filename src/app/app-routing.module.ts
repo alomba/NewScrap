@@ -7,19 +7,21 @@ import { LoginComponent }       from './auth/login/login.component';
 import { RegisterComponent }    from './auth/register/register.component';
 import { NopagefoundComponent } from './pages/nopagefound/nopagefound.component';
 import { ListNewsComponent }    from './pages/list-news/list-news.component';
+import { WebviewComponent } from './pages/webview/webview.component';
 
 
 
 const routes: Routes = [
-  { 
-    path: '', 
-    component: PagesComponent, 
+  {
+    path: '',
+    component: PagesComponent,
     children: [
       { path: '', redirectTo: '/listnews', pathMatch: 'full'},
       { path: 'listnews', component: ListNewsComponent},
-      { path: 'dashboard', component: DashboardComponent}, 
-    ]  
-  }, 
+      { path: 'dashboard', component: DashboardComponent},
+      { path: 'webview', component: WebviewComponent},
+    ]
+  },
 
   { path: 'register', component: RegisterComponent},
   { path: 'login',    component: LoginComponent},
