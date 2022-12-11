@@ -2,13 +2,16 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
 import { Observable } from 'rxjs';
 import { NewsResponse } from './interfaces/news.interface';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SubscripcionAPIService {
 
-  constructor(private http: HttpClient) {}
+  constructor(
+    private http: HttpClient,
+    private router: Router) {}
 
   baseUrl             : string = "http://127.0.0.1:8000/"
   noticias            : NewsResponse[] = []
@@ -41,8 +44,19 @@ export class SubscripcionAPIService {
   }
 
   comprobarNoticiaGuardada(noticia:NewsResponse){
-    this.noticias = JSON.parse(localStorage.getItem('noticias')!) || [];
-    return this.noticias.some(noticiaRecuperada => noticiaRecuperada.id === noticia.id)
+    if (localStorage.getItem('noticias') !== null) {
+        this.noticias = JSON.parse(localStorage.getItem('noticias')!) || [];
+        return this.noticias.some(noticiaRecuperada => noticiaRecuperada.id === noticia.id)
+    }
+    else{
+      return false
+    }
+
+  }
+
+  borrarNoticiasTodas(){
+    localStorage.removeItem('noticias');
+    this.router.navigate(['/dashboard'])
   }
 
 }

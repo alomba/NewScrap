@@ -32,4 +32,9 @@ export class DashboardComponent implements OnInit {
     this.APIservice.borrarNoticias(indice)
   }
 
+  borrarNoticiasTodas(){
+    this.news = []
+    this.APIservice.borrarNoticiasTodas()
+  }
+
 }
